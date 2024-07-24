@@ -1,53 +1,82 @@
- I have prepared 3 test scenarios for training website https://demo.guru99.com/payment-gateway/purchasetoy.php
- I have created 3 test scenarios with 2 test cases for each. Test scenarios and test cases with steps you can check below on this page. While testing basic internet shop, I have come up with idea to test the following parts of purchasing: 1) buy 2 and 4 items and confirm that amount of payment is being changed accordingly; 2) check payments with two different types of cards (VISA and MasterCard) and confirm that payment is done successfully; 3) get automatically generated card number and check the payment balance; get automatically generated card number with credit limit 100 usd, pay using this card, check the balance after transaction. 
-For all test scenarios I have chosen Selenium as a main tool for writing automated test cases. All test cases and changes in code are being downloaded to my github repository.  
-Test scenarios, test cases and steps of each test you can check below.  
-Test scenarios
-1.	Purchasing several items 
-1.	
--	Open the URL (https://demo.guru99.com/payment-gateway/purchasetoy.php ) 
--	Choose 2 items from quantity dropdown 
--	Click the button “Buy now” 
--	Wait for the page to load and switch to payment page 
--	Check if the amount equals to 40usd. 
-2.	 
--	Open the URL (https://demo.guru99.com/payment-gateway/purchasetoy.php ) 
--	Select 4 items from quantity dropdown 
--	Click the button “Buy now” 
--	Wait for the page to load and switch to payment page 
--	Check if the amount equals to 80usd. 
+ I have prepared three test scenarios for the training website: https://demo.guru99.com/payment-gateway/purchasetoy.php 
+Each scenario includes two test cases. The details of the test scenarios and test cases, along with their steps, are outlined below. I identified the following key areas for testing: 
+1.	Quantity Payment Verification 
+Purchase 2 and 4 items and confirm that the total payment amount updates accordingly
 
-2.	Payment automation test
-3.	
--	Open the URL (https://demo.guru99.com/payment-gateway/purchasetoy.php ) 
--	Select 1 item from quantity dropdown 
--	Click the button “Buy now” 
--	Wait for the page to load and switch to payment page 
--	Enter VISA credit card details (card number, expiration moth, expiration year, CVV code)
--	Click button pay
--	Confirm that payment is successful. 
-4.	 
--	Open the URL (https://demo.guru99.com/payment-gateway/purchasetoy.php ) 
--	Select 1 item from quantity dropdown 
--	Click the button “Buy now” 
--	Wait for the page to load and switch to payment page 
--	Enter VISA credit card details (card number, expiration moth, expiration year, CVV code)
--	Click button pay
--	Confirm that payment is successful. 
-Payment automation test
-5.	
--	Get automatically generated credit card details from URL https://demo.guru99.com/payment-gateway/cardnumber.php
--	Go to the following URL https://demo.guru99.com/payment-gateway/check_credit_balance.php
--	Check the credit card balance 
--	Confirm that no transfers have been done 
-6.	
--	Get automatically generated credit card details from URL https://demo.guru99.com/payment-gateway/cardnumber.php
--	Open the URL (https://demo.guru99.com/payment-gateway/purchasetoy.php ) 
--	Select 1 item from quantity dropdown 
--	Click the button “Buy now” 
--	Wait for the page to load and switch to payment page 
--	Enter saved credit card details (card number, expiration moth, expiration year, CVV code)
--	Click button pay
--	Confirm that payment is successful.
--	Go to the following URL https://demo.guru99.com/payment-gateway/check_credit_balance.php
--	Check the credit card balance 
+2.	Card Type Payment Verification
+Test payments using two different types of cards (VISA and MasterCard) and confirm that payments are processed successfully
+
+3.	Auto-Generated card Number Verification
+Get an automatically generated card number and verify the payment balance 
+Get automatically generated card number, CVV code, expiration month and year. Card payment balance is 100 usd on default. Buy 2 items, place an order and pay with this card details, verify the payment balance after transaction. 
+
+For all test scenarios, I have selected Selenium as the primary tool for writing automated test cases. All test cases and code changes are being uploaded to my GitHub repository. You ca review the test scenarios with steps for each test case below. 
+
+TEST SCENARIOS 
+
+1.	Quantity Payment Verification 
+
+Test Case 1. 
+-	Open URL https://demo.guru99.com/payment-gateway/purchasetoy.php
+-	Choose 2 items from quantity dropdown 
+-	Click “Buy now” button 
+-	Wait for the page to load and go to payment page 
+-	Check if the amount of payment equals to 40 usd 
+
+Test Case 2. 
+-	Open URL https://demo.guru99.com/payment-gateway/purchasetoy.php
+-	Choose 4 items from quantity dropdown 
+-	Click “Buy now” button 
+-	Wait for the page to load and go to payment page 
+-	Check if the amount of payment equals to 80 usd 
+
+
+
+2.	Card Type Payment Verification
+
+Test Case 3. 
+-	Open URL https://demo.guru99.com/payment-gateway/purchasetoy.php
+-	Choose 1 item from quantity dropdown 
+-	Click “Buy now” button 
+-	Wait for the page to load and go to payment page 
+-	Enter VISA card number (random VISA that I was able to find has number 4111 1111 1111 1111)
+-	Enter random expiration month, year and CVV code 
+-	Click button “Pay” 
+-	Confirm that payment is successful 
+
+Test Case 4. 
+-	Open URL https://demo.guru99.com/payment-gateway/purchasetoy.php
+-	Choose 1 item from quantity dropdown 
+-	Click “Buy now” button 
+-	Wait for the page to load and go to payment page 
+-	Enter MasterCard card number (random MC that I was able to find has number 5500 0000 0000 0004)
+-	Enter random expiration month, year and CVV code 
+-	Click button “Pay” 
+-	Confirm that payment is successful 
+
+3.	Auto-Generated card Number Verification
+Test Case 5. 
+-	Open URL https://demo.guru99.com/payment-gateway/cardnumber.php
+-	Get credit card number details and convert it to text 
+-	Cut only digits from credit card details 
+-	Open to confirm the balance the following URL https://demo.guru99.com/payment-gateway/check_credit_balance.php
+-	Enter credit card number 
+-	Click button “Submit” 
+-	Confirm that credit card balance shows no transaction 
+
+ Test Case 6. 
+-	Open URL https://demo.guru99.com/payment-gateway/cardnumber.php
+-	Get credit card number details and convert it to text 
+-	Cut only digits from credit card details, store is as text 
+-	Open URL https://demo.guru99.com/payment-gateway/purchasetoy.php 
+-	Purchase 2 items 
+-	Click “Buy now” button 
+-	Wait for the page to load and go to payment page 
+-	Enter step by step credit card number, CVV code, month and year
+-	Click “Pay” button 
+-	Wait for page to load and confirm order and payment
+-	Open to confirm the balance the following URL https://demo.guru99.com/payment-gateway/check_credit_balance.php
+-	Enter credit card number 
+-	Click button “Submit” 
+-	Confirm that credit card balance shows transaction being just done 
+
